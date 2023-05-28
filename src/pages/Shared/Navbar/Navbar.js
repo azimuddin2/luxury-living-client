@@ -8,11 +8,15 @@ const Navbar = () => {
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link>About</Link></li>
-        <li><Link>Projects</Link></li>
+        <li><Link>Services</Link></li>
         <li><Link>Contact</Link></li>
-        <li
-            className='btn btn-primary btn-sm lg:btn-md text-white capitalize rounded-md'>
-            <Link to='/login'>Login<BiLogInCircle className='text-lg lg:text-xl'></BiLogInCircle></Link>
+        <li className='flex lg:items-center'>
+            <Link
+                to='/login'
+                className='btn-primary btn-sm text-white capitalize'
+            >
+                Login<BiLogInCircle className='text-lg lg:text-xl'></BiLogInCircle>
+            </Link>
         </li>
     </>
 
