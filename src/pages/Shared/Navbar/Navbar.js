@@ -12,7 +12,7 @@ const Navbar = () => {
         <li><Link>Contact</Link></li>
         <li
             className='btn btn-primary btn-sm lg:btn-md text-white capitalize rounded-md'>
-            <Link>Login<BiLogInCircle className='text-lg lg:text-xl'></BiLogInCircle></Link>
+            <Link to='/login'>Login<BiLogInCircle className='text-lg lg:text-xl'></BiLogInCircle></Link>
         </li>
     </>
 
