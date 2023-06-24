@@ -59,11 +59,11 @@ const Testimonials = () => {
     ];
 
     return (
-        <section className='py-20' style={{ backgroundColor: '#F6F6F6' }}>
+        <section className='py-12 lg:py-20 px-4 lg:px-0' style={{ backgroundColor: '#F6F6F6' }}>
             <div className='max-w-5xl mx-auto'>
                 <div className='text-center mb-12'>
-                    <h4 className='text-lg text-primary font-bold'>Testimonial</h4>
-                    <h2 className='text-3xl'>What Our Patients Says</h2>
+                    <h4 className='text-lg text-primary font-medium'>Testimonial</h4>
+                    <h2 className='text-2xl lg:text-3xl text-secondary font-semibold'>What Our Clients Says</h2>
                 </div>
                 <div>
                     <Swiper

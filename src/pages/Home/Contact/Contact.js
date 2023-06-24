@@ -4,10 +4,10 @@ import { FiSend } from 'react-icons/fi';
 
 const Contact = () => {
     return (
-        <section className='max-w-5xl mx-auto my-20'>
-            <div className='text-center mb-4'>
+        <section className='max-w-5xl mx-auto my-14 lg:my-20'>
+            <div className='text-center mb-2'>
                 <h3 className='text-lg text-primary font-medium'>Contact</h3>
-                <h2 className='text-3xl text-secondary font-bold'>Let us handle your <br /> project, professionally.</h2>
+                <h2 className='text-xl lg:text-3xl text-secondary font-bold'>Let us handle your <br /> project, professionally.</h2>
             </div>
             <div className=''>
                 <form className="card-body px-4 md:px-8 lg:px-8">

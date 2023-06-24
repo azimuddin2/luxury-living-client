@@ -28,10 +28,10 @@ const Projects = () => {
     ];
 
     return (
-        <section className='max-w-5xl mx-auto my-16'>
+        <section className='max-w-5xl mx-auto my-16 px-4 lg:px-0'>
             <div className='text-center mb-8'>
                 <h3 className='text-lg text-primary font-medium'>Projects</h3>
-                <h2 className='text-3xl text-secondary font-bold'>Discover the latest Interior Design <br /> available today</h2>
+                <h2 className='text-xl lg:text-3xl text-secondary font-bold'>Discover the latest Interior Design <br /> available today</h2>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {

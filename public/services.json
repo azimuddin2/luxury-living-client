@@ -13,7 +13,7 @@
         "name": "Showroom Design",
         "price": 399,
         "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-        "shadow": "shadow-xl"
+        "shadow": "shadow-md"
     },
     {
         "_id": 3,
