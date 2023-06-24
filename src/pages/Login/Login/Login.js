@@ -4,8 +4,10 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import logo from '../../../assets/Image/logo.png';
 import './Login.css'
 import SocialLogin from '../SocialLogin/SocialLogin';
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login');
     const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = (event) => {
