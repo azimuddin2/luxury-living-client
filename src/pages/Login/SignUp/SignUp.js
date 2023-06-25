@@ -1,17 +1,51 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/Image/logo.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './SignUp.css';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import useTitle from '../../../hooks/useTitle';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
     useTitle('SignUp');
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                handleUpdateUserProfile(name);
+                form.reset();
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    };
+
+    const handleUpdateUserProfile = (name) => {
+        const profile = {
+            displayName: name
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => {
+                toast.error(error.message)
+            })
     };
 
     return (
@@ -21,7 +55,10 @@ const SignUp = () => {
             </Link>
             <div className="card w-11/12 md:w-4/5 lg:w-2/5 mx-auto border py-10">
                 <h1 className="text-4xl text-primary font-semibold text-center">Sign Up</h1>
-                <form onSubmit={handleSubmit} className="card-body px-4 md:px-10 lg:px-10">
+                <form
+                    onSubmit={handleSubmit}
+                    className="card-body px-4 md:px-10 lg:px-10"
+                >
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-semibold text-neutral text-lg">Name</span>

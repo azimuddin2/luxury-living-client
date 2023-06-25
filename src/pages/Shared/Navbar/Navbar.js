@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/Image/logo.png';
 import { Link } from 'react-router-dom';
 import { BiLogInCircle } from 'react-icons/bi';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    };
 
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
@@ -11,12 +22,22 @@ const Navbar = () => {
         <li><Link>Services</Link></li>
         <li><Link>Contact</Link></li>
         <li className='flex lg:items-center'>
-            <Link
-                to='/login'
-                className='btn-primary btn-sm text-white capitalize'
-            >
-                Login<BiLogInCircle className='text-lg lg:text-xl'></BiLogInCircle>
-            </Link>
+            {
+                user?.uid ?
+                    <button
+                        onClick={handleLogOut}
+                        className='btn-primary btn-sm text-white capitalize px-4 lg:px-6'
+                    >
+                        Logout
+                    </button>
+                    :
+                    <Link
+                        to='/login'
+                        className='btn-primary btn-sm text-white capitalize'
+                    >
+                        Login<BiLogInCircle className='text-lg lg:text-xl'></BiLogInCircle>
+                    </Link>
+            }
         </li>
     </>
 

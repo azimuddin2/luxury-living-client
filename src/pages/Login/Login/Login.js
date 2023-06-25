@@ -1,17 +1,38 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import logo from '../../../assets/Image/logo.png';
 import './Login.css'
 import SocialLogin from '../SocialLogin/SocialLogin';
 import useTitle from '../../../hooks/useTitle';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
     useTitle('Login');
+    const { signIn } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
     };
 
     return (
