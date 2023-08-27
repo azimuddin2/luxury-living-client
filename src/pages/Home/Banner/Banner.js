@@ -14,7 +14,7 @@ const Banner = () => {
                     <div className='flex-1'>
                         <h1 className="text-5xl font-bold text-secondary leading-tight">We Build <br /> Your Dream</h1>
                         <p className="py-6 text-accent text-sm">Online Easte Agency, the mordern way to sell your own home, You can use Griffin Residential to market your property</p>
-                        <Link to='/services'>
+                        <Link to='/dashboard'>
                             <Button>Booking</Button>
                         </Link>
                     </div>

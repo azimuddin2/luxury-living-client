@@ -16,7 +16,7 @@ const DashboardLayout = () => {
                     <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-64 lg:bg-inherit bg-base-100 text-base-content">
 
-                        <li><Sidebar to="/dashboard">Book</Sidebar></li>
+                        <li><Sidebar to="/dashboard">Booking</Sidebar></li>
                         <li><Sidebar to="/dashboard/booking-list">Booking List</Sidebar></li>
                         <li><Sidebar to="/dashboard/review">Review</Sidebar></li>
 
