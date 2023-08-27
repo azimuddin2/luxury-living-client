@@ -1,6 +1,7 @@
 import React from 'react';
 import luxuryLivingImg from '../../../assets/Image/luxury-living.png';
 import Button from '../../Shared/Button/Button';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -13,7 +14,9 @@ const Banner = () => {
                     <div className='flex-1'>
                         <h1 className="text-5xl font-bold text-secondary leading-tight">We Build <br /> Your Dream</h1>
                         <p className="py-6 text-accent text-sm">Online Easte Agency, the mordern way to sell your own home, You can use Griffin Residential to market your property</p>
-                        <Button>Booking</Button>
+                        <Link to='/services'>
+                            <Button>Booking</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

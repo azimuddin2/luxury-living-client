@@ -19,7 +19,7 @@ const Navbar = () => {
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link>About</Link></li>
-        <li><Link>Services</Link></li>
+        <li><Link to='/services'>Services</Link></li>
         <li><Link>Contact</Link></li>
         {
             user?.uid && <li className='lg:mr-2 lg:mb-0 mb-2'><Link to='/dashboard'>Dashboard</Link></li>
