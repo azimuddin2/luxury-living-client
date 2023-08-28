@@ -1,10 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Service = ({ service }) => {
-    const { image, name, price, description, shadow } = service;
+    const { _id, image, name, price, description, shadow } = service;
+    const navigate = useNavigate();
 
     return (
-        <div className={`card ${shadow} rounded-sm`}>
+        <div
+            onClick={() => navigate(`/dashboard/${_id}`)}
+            className={`card ${shadow} rounded-sm cursor-pointer`}
+        >
             <figure className="pt-10">
                 <img src={image} alt={name} className="w-20" />
             </figure>

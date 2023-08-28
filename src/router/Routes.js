@@ -39,11 +39,14 @@ const router = createBrowserRouter([
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
             {
-                path: '/dashboard',
-                element: <Book></Book>
+                path: '/dashboard/:id',
+                element: <Book></Book>,
+                loader: ({params}) => {
+                    return fetch(`http://localhost:5000/dashboard/${params.id}`)
+                }
             },
             {
-                path: '/dashboard/booking-list',
+                path: '/dashboard',
                 element: <BookingList></BookingList>
             },
             {
